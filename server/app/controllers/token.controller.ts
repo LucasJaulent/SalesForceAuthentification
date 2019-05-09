@@ -14,7 +14,6 @@ export class TokenController {
 
         router.post("/",
                     async (req: Request, res: Response, next: NextFunction) => {
-                console.log("test");
                 const code: string = req.body.code;
                 await this.tokenService.getTokens(code).then((response: AxiosResponse<JSON>) => {
                     res.send(response.data);
