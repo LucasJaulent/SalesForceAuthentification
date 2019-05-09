@@ -3,12 +3,11 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
+import { RouterModule } from "@angular/router";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { CommunicationService } from "./communication.service";
-import { RouterModule } from "@angular/router";
-import { AuthentificationComponent } from './authentification/authentification.component';
-import { CallbackComponent } from './callback/callback.component';
+import { AuthentificationComponent } from "./authentification/authentification.component";
+import { CallbackComponent } from "./callback/callback.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +23,7 @@ import { CallbackComponent } from './callback/callback.component';
     AppRoutingModule,
     RouterModule,
   ],
-  providers: [CommunicationService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
