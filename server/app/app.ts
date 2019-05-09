@@ -4,7 +4,6 @@ import * as cors from "cors";
 import * as express from "express";
 import { inject, injectable } from "inversify";
 import * as logger from "morgan";
-import { DatabaseController } from "./controllers/database.controller";
 import Types from "./types";
 import { TokenController } from "./controllers/token.controller";
 
@@ -14,7 +13,7 @@ export class Application {
     private readonly internalError: number = 500;
     public app: express.Application;
 
-    public constructor(@inject(Types.DatabaseController) private databaseController: DatabaseController, 
+    public constructor(
                        @inject(Types.TokenController) private tokenController: TokenController) {
         this.app = express();
 
@@ -34,7 +33,6 @@ export class Application {
 
     public bindRoutes(): void {
         // Notre application utilise le routeur de notre API
-        this.app.use("/database", this.databaseController.router);
         this.app.use("/token", this.tokenController.router);
         this.errorHandeling();
     }
