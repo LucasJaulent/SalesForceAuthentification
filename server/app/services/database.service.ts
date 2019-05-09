@@ -1,8 +1,6 @@
 import { injectable } from "inversify";
 import * as pg from "pg";
 import "reflect-metadata";
-import {schema} from "../createSchema";
-import {data} from "../populateDB";
 import { Room } from "../../../common/tables/Room";
 
 @injectable()
@@ -24,16 +22,13 @@ export class DatabaseService {
 
         METHODES DE DEBUG
     */
-    public createSchema(): Promise<pg.QueryResult> {
+    public createSchema() {
         this.pool.connect();
         
-        return this.pool.query(schema);
     }
 
-    public populateDb(): Promise<pg.QueryResult> {
+    public populateDb() {
         this.pool.connect();
-
-        return this.pool.query(data);
     }
 
     public getAllFromTable(tableName: string): Promise<pg.QueryResult> {
