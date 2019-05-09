@@ -23,10 +23,9 @@ export class CallbackComponent implements OnInit {
   private getCodeFromUrl(): string {
     return this.router.url.substr(this.router.url.indexOf("=") + 1);
   }
-  
+
   private getTokens(code: string): void {
     this.http.post(Constants.callbackUr, {code: code}).subscribe((res: JSON) => {
-      console.log(res);
       this.accessToken = (res as any).access_token;
       this.refreshToken = (res as any).refresh_token;
 

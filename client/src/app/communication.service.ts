@@ -22,7 +22,6 @@ export class CommunicationService {
        this._listners.next(filterBy);
     }
 
-
     public getHotels(): Observable<any[]> {
 
         return this.http.get<Hotel[]>(this.BASE_URL + "/hotel").pipe(

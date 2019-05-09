@@ -14,9 +14,8 @@ export class AuthentificationComponent implements OnInit {
 
   private buildUrl(): string {
     let url: string = "";
-
-    for (let i = 0; i < Constants.urlInformations.length; i++) {
-      url += Constants.urlInformations[i];
+    for (const informations of Constants.urlInformations) {
+      url += informations;
     }
 
     return url;
